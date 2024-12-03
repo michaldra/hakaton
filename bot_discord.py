@@ -1,7 +1,6 @@
 import discord
 import bot_logic
 import random
-import requests
 import os
 from discord.ext import commands
 
@@ -16,27 +15,15 @@ async def on_ready():
 
 @bot.command()
 async def all(ctx):
-    await ctx.send('Wszystkie komendy:\n')
-    await ctx.send('**$hello** - Wita się\n')
-    await ctx.send('**$bye** - Żegna się\n')
-    await ctx.send('**$hehe #** - Pisze "he" # razy\n')
-    await ctx.send('**$password #** - Generuje hasło o długości #\n')
-    await ctx.send('**$h #** - Pisze "h " # razy\n')
-    await ctx.send('**$coin** - Rzuca monetą\n')
-    await ctx.send('**$emoji** - Generuje losową emotkę\n')
-    await ctx.send('**$dice #** - Rzuca kostką o # ścianach\n')
-    await ctx.send('**$guess #** - Zaczyna grę w zgadywanie od 1 do #\n')
-    await ctx.send('**$joined** - Pisze kiedy użytkownik dołączył do serwera')
-    await ctx.send('**$meme** - Wysyła losowy mem o programowaniu\n')
-    await ctx.send('**$dog** - Wysyła losowy obrazek z pieskami\n')
-    await ctx.send('**$eko** - Pisze losowy pomysł na zrobienie czegoś ze śmieci\n')
+    with open('all.txt', 'r', encoding='utf-8') as f:
+        await ctx.send(f.read())
 
 @bot.command()
-async def czesc(ctx):
+async def hello(ctx):
     await ctx.send(f'Cześć, jestem {bot.user}!')
 
 @bot.command()
-async def pa(ctx):
+async def bye(ctx):
     await ctx.send(f'👋')
 
 @bot.command()
@@ -79,13 +66,16 @@ async def pomysl(ctx):
     await ctx.send(bot_logic.pomysl())
 
 @bot.command()
+async def ciekawostka(ctx):
+    await ctx.send(bot_logic.ciekawostka())
+
+@bot.command()
 async def ai(ctx):
     if len(ctx.message.attachments) == 0:
         await ctx.send("Nie wykryto załączonego obrazka")
     else:
         for attachment in ctx.message.attachments:
             await(attachment.save(f"ai_imgs/{attachment.filename}"))
-            await ctx.send(ai_thing.detect_bird(f"ai_imgs/{attachment.filename}", "keras_model.h5", "labels.txt"))
-         
+            await ctx.send(bot_logic.detect_trash(f"ai_imgs/{attachment.filename}", "keras_model.h5", "labels.txt"))
 
-bot.run("amogus")
+bot.run("gucia")

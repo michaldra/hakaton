@@ -4,10 +4,21 @@ from PIL import Image, ImageOps
 import numpy as np
 
 def pomysl():
-    pomysly = ["Pudełko z patyczków po lodach","Stworek z plastikowej butelki i nakrętek","Pokrowiec na telefon z tkaniny"]
+    pomysly = ["Pudełko z patyczków po lodach","Stworek z plastikowej butelki i nakrętek","Pokrowiec na telefon z tkaniny","Ozdoba świąteczna z drutu"]
     return random.choice(pomysly)
 
-def detect_bird(image, model=load_model("keras_model.h5", compile=False), class_names=open("labels.txt", "r", encoding="utf-8").readlines()):
+def ciekawostka():
+    facts = [
+        "Średnia temperatura na świecie w 2019 wynosiła 1,1 °C powyżej poziomu sprzed epoki przemysłowej",
+        "Globalne ocieplenie wywołane przez człowieka rośnie w tempie 0,2 °C na 10 lat",
+        "Do 2020 stężenie CO₂ w atmosferze wzrosło do 48% powyżej poziomu sprzed epoki przemysłowej (do 1750)",
+        "Szacuje się, że w latach 1890–2010 przyczyny naturalne, takie jak zmiany promieniowania słonecznego lub aktywności wulkanicznej, przyczyniły się do wzrostu temperatury o mniej niż 0,1 °C",
+        "Społeczność międzynarodowa uznała, że należy utrzymać ocieplenie znacznie poniżej 2 °C i kontynuować działania na rzecz ograniczenia tego wzrostu do 1,5 °C",
+        "Stężenie CO₂ w atmosferze jest najwyższe od co najmniej 2 milionów lat",
+    ]
+    return random.choice(facts)
+
+#def detect_trash(image, model=load_model("keras_model.h5", compile=False), class_names=open("labels.txt", "r", encoding="utf-8").readlines()):
     np.set_printoptions(suppress=True)
     model = load_model("keras_model.h5", compile=False)
     class_names = open("labels.txt", "r").readlines()
