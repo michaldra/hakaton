@@ -5,3 +5,4 @@ Wszystkie komendy:
 **$pomysl** - Pisze losowy pomysł na zrobienie czegoś ze śmieci
 **$ciekawostka** - Wysyła losową ciekawostkę o globalnym ociepleniu
 **$ai** - Rozpoznaje śmieci z załączonego obrazka za pomocą sztucznej inteligencji
+**$kalkulator** - Oblicza efektywność energetyczną twojego domu
