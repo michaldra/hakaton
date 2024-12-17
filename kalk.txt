@@ -1,0 +1,5 @@
+Oblicz efektywność energetyczną twojego domu!
+Użyj następującej komendy: **$kalk X Y Z**
+W miejsce **X** podaj wielkość swojego domu: (A) - *mały (B) - *średni (C) - *duży*
+W miejsce **Y** podaj ilość lamp w twoim domu: (A) - *Mniej niż 2* (B) - *2-4* (C) - *5-7* (D) - *8 lub więcej*
+W miejsce **Z** podaj liczbę urządzeń korzystających z prądu: (A) - *Mniej niż 3* (B) - *3-5* (C) - *6-9* (D) - *10 lub więcej*

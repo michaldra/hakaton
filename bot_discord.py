@@ -79,10 +79,13 @@ async def ai(ctx):
             await ctx.send(bot_logic.detect_trash(f"ai_imgs/{attachment.filename}", "keras_model.h5", "labels.txt"))
 
 @bot.command()
-async def kalkulator_info(ctx):
-    await ctx.send("Oblicz efektywność energetyczną twojego domu!")
-    await ctx.send("Użyj następującej komendy: **$kalkulator X Y Z**")
-    await ctx.send("Podaj wielkość swojego domu:\n(A) - mały\n(B) - średni\n(C) - duży")
+async def kalkulator(ctx):
+    with open('kalk.txt', 'r', encoding='utf-8') as f:
+        await ctx.send(f.read())
+
+@bot.command()
+async def kalk(ctx, size, lights, devices):
+    await ctx.send(bot_logic.kalk(size, lights, devices))
 
 @bot.command()
 async def joe(ctx):
@@ -91,4 +94,4 @@ async def joe(ctx):
         picture = discord.File(f)
     await ctx.send(file=picture)
 
-bot.run("hansko")
+bot.run("token")

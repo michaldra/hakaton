@@ -18,6 +18,22 @@ def ciekawostka():
     ]
     return random.choice(facts)
 
+def kalk(rozmiar, lampy, urz):
+    rozmiary = {"A": 100, "B": 200, "C": 300}
+    swiatla = {"A": 0.04, "B": 0.12, "C": 0.12, "D": 0.45}
+    urzadz = {"A": 10, "B": 20, "C": 35, "D": 55}
+    literki = ["A", "B", "C", "D"]
+    if rozmiar in ["A", "B", "C"] and lampy in literki and urz in literki:
+        ef = rozmiary[rozmiar] + swiatla[lampy] + urzadz[urz]
+        if ef < 151:
+            return f"💚 Twój wynik: {ef} kWh\n Twój dom jest wyjątkowo wydajny, jeśli chodzi o zużycie energii!"
+        elif ef < 301:
+            return f"🟡 Twój wynik: {ef} kWh\n Efektywność energetyczna Twojego domu jest średnia!"
+        else:
+            return f"🟥 Twój wynik: {ef} kWh\n Efektywność energetyczna Twojego domu jest poniżej średniej!"
+    else: 
+        return("Nieprawidłowa komenda!")
+
 #def detect_trash(image, model=load_model("keras_model.h5", compile=False), class_names=open("labels.txt", "r", encoding="utf-8").readlines()):
     np.set_printoptions(suppress=True)
     model = load_model("keras_model.h5", compile=False)
